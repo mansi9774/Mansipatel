@@ -1,0 +1,47 @@
+{% extends 'doctor_header.html'%}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		tr,td{
+		font-size: 18px;	
+		}
+	</style>
+	 
+<body>
+	
+<center>
+	<h1>edit_profile </h1>
+	{% if msg %}
+		<b style="color:blue;"> {{msg}}</b>
+		{% endif %}
+	<form name="edit_profile" method="POST" action="{% url 'edit_profile' %}" enctype="multipart/form-data">
+		{% csrf_token %}
+		<table>
+			
+			<tr>
+				<td colspan="2" align="center">
+					<img src="{{doctor_profile.profile_pic.url}}" width="100px" height="100px">
+				</td>
+			</tr>
+			
+			  
+			<tr>
+				<td>profile pic</td>
+				<td><input type="file" name="profile_pic"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="action" value="update profile" class="btn btn-primary" ></td>
+			</tr> 
+		</table>
+	</form>
+	</center>
+	
+	</body>
+	</html>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'doctor_header.html'%}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	
+	</head>
+
+</head>
+<body>
+	
+<center>
+	<h1>enter otp </h1>
+	{% if msg %}
+		<b style="color:blue;"> {{msg}}</b>
+	{% endif %}
+	<form name="enter otp" method="post" action="{% url 'verify_otp'%}">
+		{% csrf_token %}
+		<table>
+			<tr>
+				<td>
+					<input type="hidden" name="otp" value="{{otp}}">
+					<input type="hidden" name="email" value="{{email}}">
+				</td>
+			</tr>
+				
+			<tr>
+				<td>enter otp</td>
+				<td><input type="text"  name="uotp"></td>
+			</tr>
+			 
+			
+			
+			 <tr>
+				<td colspan="2" align="center"></td>
+				<input type="Submit" name="action" value="verify " class="btn btn-primary" ></td>
+			</tr>  
+		</table>
+	</form>
+</center
+
+	
+</body>
+</html>
+{% endblock %} 
